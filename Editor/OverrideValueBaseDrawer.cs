@@ -1,10 +1,10 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace UniTexturePreprocessor
+namespace UniTexturePreprocessor.Internal
 {
 	[CustomPropertyDrawer( typeof( OverrideValueBase ), true )]
-	public sealed class OverrideValueBaseDrawer : PropertyDrawer
+	internal sealed class OverrideValueBaseDrawer : PropertyDrawer
 	{
 		public override void OnGUI( Rect position, SerializedProperty property, GUIContent label )
 		{
@@ -17,7 +17,7 @@ namespace UniTexturePreprocessor
 
 			var valueRect = position;
 			valueRect.x = 40;
-		
+
 			isOverrideProperty.boolValue = EditorGUI.Toggle( isOverrideRect, isOverrideProperty.boolValue );
 
 			var oldEnabled = GUI.enabled;

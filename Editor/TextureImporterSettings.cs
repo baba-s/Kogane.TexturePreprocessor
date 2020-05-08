@@ -1,13 +1,23 @@
-﻿using UnityEditor;
+﻿using UniTexturePreprocessor.Internal;
+using UnityEditor;
 using UnityEngine;
 
 namespace UniTexturePreprocessor
 {
-	[CreateAssetMenu( fileName = "TextureImporterSettingsAsset", menuName = "UniTexturePreprocessor/TextureImporterSettingsAsset", order = 10050 )]
-	public sealed class TextureImporterSettingsAsset : ScriptableObject
+	/// <summary>
+	/// テクスチャの Import Settings を管理するクラス
+	/// </summary>
+	[CreateAssetMenu( fileName = "TextureImporterSettings", menuName = "UniTexturePreprocessor/TextureImporterSettings", order = 10050 )]
+	internal sealed class TextureImporterSettings : ScriptableObject
 	{
+		//================================================================================
+		// 定数
+		//================================================================================
 		private const float SPACE_HEIGHT = 16;
-
+		
+		//================================================================================
+		// 変数(SerializeField)
+		//================================================================================
 		[SerializeField] private OverrideTextureImporterType  m_textureType  = new OverrideTextureImporterType( "Texture Type", TextureImporterType.Default );
 		[SerializeField] private OverrideTextureImporterShape m_textureShape = new OverrideTextureImporterShape( "Texture Shape", TextureImporterShape.Texture2D );
 		
@@ -53,15 +63,21 @@ namespace UniTexturePreprocessor
 		
 		[Space( SPACE_HEIGHT )]
 
-		[SerializeField] private TextureImporterPlatformSettingsAsset m_defaultSettings         = default;
-		[SerializeField] private TextureImporterPlatformSettingsAsset m_standaloneSettings      = default;
-		[SerializeField] private TextureImporterPlatformSettingsAsset m_iPhoneSettings          = default;
-		[SerializeField] private TextureImporterPlatformSettingsAsset m_androidSettings         = default;
-		[SerializeField] private TextureImporterPlatformSettingsAsset m_webGLSettings           = default;
-
+		[SerializeField] private TextureImporterPlatformSettings m_defaultSettings         = default;
+		[SerializeField] private TextureImporterPlatformSettings m_standaloneSettings      = default;
+		[SerializeField] private TextureImporterPlatformSettings m_iPhoneSettings          = default;
+		[SerializeField] private TextureImporterPlatformSettings m_androidSettings         = default;
+		[SerializeField] private TextureImporterPlatformSettings m_webGLSettings           = default;
+		
+		//================================================================================
+		// 関数
+		//================================================================================
+		/// <summary>
+		/// 指定された TextureImporter に設定を適用します
+		/// </summary>
 		public void Apply( TextureImporter importer )
 		{
-			var settings = new TextureImporterSettings();
+			var settings = new UnityEditor.TextureImporterSettings();
 			importer.ReadTextureSettings( settings );
 
 			if ( m_textureType.IsOverride )
@@ -197,7 +213,6 @@ namespace UniTexturePreprocessor
 			if ( m_defaultSettings != null )
 			{
 				var platformSettings = importer.GetPlatformTextureSettings( "DefaultTexturePlatform" );
-				platformSettings.overridden = true;
 				m_defaultSettings.Apply( platformSettings );
 				importer.SetPlatformTextureSettings( platformSettings );
 			}
@@ -205,7 +220,6 @@ namespace UniTexturePreprocessor
 			if ( m_standaloneSettings != null )
 			{
 				var platformSettings = importer.GetPlatformTextureSettings( "Standalone" );
-				platformSettings.overridden = true;
 				m_standaloneSettings.Apply( platformSettings );
 				importer.SetPlatformTextureSettings( platformSettings );
 			}
@@ -221,7 +235,6 @@ namespace UniTexturePreprocessor
 			if ( m_androidSettings != null )
 			{
 				var platformSettings = importer.GetPlatformTextureSettings( "Android" );
-				platformSettings.overridden = true;
 				m_androidSettings.Apply( platformSettings );
 				importer.SetPlatformTextureSettings( platformSettings );
 			}
@@ -229,7 +242,6 @@ namespace UniTexturePreprocessor
 			if ( m_webGLSettings != null )
 			{
 				var platformSettings = importer.GetPlatformTextureSettings( "WebGL" );
-				platformSettings.overridden = true;
 				m_webGLSettings.Apply( platformSettings );
 				importer.SetPlatformTextureSettings( platformSettings );
 			}
