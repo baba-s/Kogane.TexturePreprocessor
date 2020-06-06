@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace UniTexturePreprocessor
+namespace Kogane.Internal
 {
 	/// <summary>
 	/// アセットのパスごとにテクスチャの Import Settings を管理するクラス

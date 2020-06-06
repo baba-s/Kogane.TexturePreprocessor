@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace UniTexturePreprocessor.Internal
+namespace Kogane.Internal
 {
 	[CustomPropertyDrawer( typeof( OverrideValueBase ), true )]
 	internal sealed class OverrideValueBaseDrawer : PropertyDrawer

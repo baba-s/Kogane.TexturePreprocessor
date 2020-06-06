@@ -1,8 +1,7 @@
-﻿using UniTexturePreprocessor.Internal;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
-namespace UniTexturePreprocessor
+namespace Kogane.Internal
 {
 	/// <summary>
 	/// テクスチャのプラットフォームごとの Import Settings を管理するクラス

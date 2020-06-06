@@ -1,9 +1,8 @@
-﻿using UniTexturePreprocessor.Internal;
-using UnityEditor.U2D;
+﻿using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.U2D;
 
-namespace UniTexturePreprocessor
+namespace Kogane.Internal
 {
 	/// <summary>
 	/// SpriteAtlas の Import Settings を管理するクラス

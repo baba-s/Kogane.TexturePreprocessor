@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace UniTexturePreprocessor
+namespace Kogane.Internal
 {
 	/// <summary>
 	/// テクスチャや SpriteAtlas の設定の基底クラス

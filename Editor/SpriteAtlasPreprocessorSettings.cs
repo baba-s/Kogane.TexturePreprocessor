@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace UniTexturePreprocessor
+namespace Kogane.Internal
 {
 	/// <summary>
 	/// アセットのパスごとに SpriteAtlas の Import Settings を管理するクラス

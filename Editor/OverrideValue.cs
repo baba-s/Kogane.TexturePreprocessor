@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace UniTexturePreprocessor.Internal
+namespace Kogane.Internal
 {
 	internal abstract class OverrideValueBase
 	{
