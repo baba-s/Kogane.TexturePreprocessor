@@ -1,22 +1,20 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Kogane
 {
     /// <summary>
     /// テクスチャや SpriteAtlas の設定の基底クラス
-    /// Inspector のエディタ拡張を共通化するために必要
     /// </summary>
-    public abstract class PreprocessorSettingsBase : ScriptableObject
+    public abstract class PreprocessorSettingsBaseT<T> : ScriptableObject
     {
-    }
+        //================================================================================
+        // 変数(SerializeField)
+        //================================================================================
+        [SerializeField] private T[] m_list;
 
-    /// <summary>
-    /// テクスチャや SpriteAtlas の個別の設定の基底クラス
-    /// Inspector のエディタ拡張を共通化するために必要
-    /// </summary>
-    [Serializable]
-    public abstract class PreprocessorSettingBase
-    {
+        //================================================================================
+        // プロパティ
+        //================================================================================
+        public T[] List => m_list;
     }
 }

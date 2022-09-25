@@ -44,6 +44,9 @@ namespace Kogane.Internal
             }
         }
 
+        /// <summary>
+        /// 高さを返します
+        /// </summary>
         public override float GetPropertyHeight( SerializedProperty property, GUIContent label )
         {
             return 40;
