@@ -1,21 +1,31 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Kogane.Internal
 {
-    /// <summary>
-    /// アセットのパスごとにテクスチャの Import Settings を管理するクラス
-    /// </summary>
-    [CreateAssetMenu( fileName = "TexturePreprocessorSettings", menuName = "UniTexturePreprocessor/TexturePreprocessorSettings", order = 10049 )]
-    internal sealed class TexturePreprocessorSettings : PreprocessorSettingsBaseT<TexturePreprocessorSetting>
+    [FilePath( "ProjectSettings/Kogane/TexturePreprocessorSettings.asset", FilePathAttribute.Location.ProjectFolder )]
+    internal sealed class TexturePreprocessorSettings :
+        ScriptableSingleton<TexturePreprocessorSettings>,
+        IEnumerable<TexturePreprocessorSetting>
     {
-    }
+        [SerializeField] private TexturePreprocessorSetting[] m_array = Array.Empty<TexturePreprocessorSetting>();
 
-    /// <summary>
-    /// アセットのパスに紐づくテクスチャの Import Settings を管理するクラス
-    /// </summary>
-    [Serializable]
-    internal sealed class TexturePreprocessorSetting : PreprocessorSettingBase<TextureImporterSettings>
-    {
+        public void Save()
+        {
+            Save( true );
+        }
+
+        public IEnumerator<TexturePreprocessorSetting> GetEnumerator()
+        {
+            return ( ( IEnumerable<TexturePreprocessorSetting> )m_array ).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

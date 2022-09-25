@@ -6,7 +6,6 @@ namespace Kogane.Internal
     /// <summary>
     /// テクスチャの Import Settings を管理するクラス
     /// </summary>
-    [CreateAssetMenu( fileName = "TextureImporterSettings", menuName = "UniTexturePreprocessor/TextureImporterSettings", order = 10050 )]
     internal sealed class TextureImporterSettings : ScriptableObject
     {
         //================================================================================

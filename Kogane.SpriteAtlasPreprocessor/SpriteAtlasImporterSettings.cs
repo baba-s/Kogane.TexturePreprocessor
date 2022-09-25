@@ -7,7 +7,6 @@ namespace Kogane.Internal
     /// <summary>
     /// SpriteAtlas の Import Settings を管理するクラス
     /// </summary>
-    [CreateAssetMenu( fileName = "SpriteAtlasImporterSettings", menuName = "UniTexturePreprocessor/SpriteAtlasImporterSettings", order = 10070 )]
     internal sealed class SpriteAtlasImporterSettings : ScriptableObject
     {
         //================================================================================
