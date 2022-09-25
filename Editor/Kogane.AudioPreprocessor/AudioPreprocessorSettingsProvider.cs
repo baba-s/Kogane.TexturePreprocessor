@@ -35,9 +35,41 @@ namespace Kogane.Internal
 
             m_editor.OnInspectorGUI();
 
+            using ( new EditorGUILayout.HorizontalScope() )
+            {
+                if ( GUILayout.Button( "Create Importer Settings" ) )
+                {
+                    CreateScriptableObject<AudioImporterSettings>();
+                }
+
+                if ( GUILayout.Button( "Create Platform Settings" ) )
+                {
+                    CreateScriptableObject<AudioImporterPlatformSettings>();
+                }
+            }
+
             if ( !changeCheckScope.changed ) return;
 
             AudioPreprocessorSettings.instance.Save();
+        }
+
+        private static void CreateScriptableObject<T>() where T : ScriptableObject
+        {
+            var fullPath = EditorUtility.SaveFilePanel
+            (
+                title: "",
+                directory: "Assets",
+                defaultName: typeof( T ).Name,
+                extension: "asset"
+            );
+
+            if ( string.IsNullOrWhiteSpace( fullPath ) ) return;
+
+            var relativePath = FileUtil.GetProjectRelativePath( fullPath );
+            var instance     = ScriptableObject.CreateInstance<T>();
+
+            AssetDatabase.CreateAsset( instance, relativePath );
+            AssetDatabase.Refresh();
         }
 
         [SettingsProvider]
