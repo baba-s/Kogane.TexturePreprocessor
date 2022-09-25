@@ -1,5 +1,5 @@
 {
-    "name": "UniTexturePreprocessor",
+    "name": "Kogane.TexturePreprocessor",
     "references": [],
     "includePlatforms": [
         "Editor"
