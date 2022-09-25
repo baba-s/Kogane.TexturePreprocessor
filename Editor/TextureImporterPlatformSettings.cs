@@ -30,50 +30,15 @@ namespace Kogane.Internal
         /// </summary>
         public void Apply( UnityEditor.TextureImporterPlatformSettings settings )
         {
-            if ( m_overridden.IsOverride )
-            {
-                settings.overridden = m_overridden;
-            }
-
-            if ( m_maxTextureSize.IsOverride )
-            {
-                settings.maxTextureSize = m_maxTextureSize;
-            }
-
-            if ( m_resizeAlgorithm.IsOverride )
-            {
-                settings.resizeAlgorithm = m_resizeAlgorithm;
-            }
-
-            if ( m_format.IsOverride )
-            {
-                settings.format = m_format;
-            }
-
-            if ( m_textureCompression.IsOverride )
-            {
-                settings.textureCompression = m_textureCompression;
-            }
-
-            if ( m_compressionQuality.IsOverride )
-            {
-                settings.compressionQuality = m_compressionQuality;
-            }
-
-            if ( m_crunchedCompression.IsOverride )
-            {
-                settings.crunchedCompression = m_crunchedCompression;
-            }
-
-            if ( m_allowsAlphaSplitting.IsOverride )
-            {
-                settings.allowsAlphaSplitting = m_allowsAlphaSplitting;
-            }
-
-            if ( m_androidEtc2FallbackOverride.IsOverride )
-            {
-                settings.androidETC2FallbackOverride = m_androidEtc2FallbackOverride;
-            }
+            m_overridden.Override( x => settings.overridden                                   = x );
+            m_maxTextureSize.Override( x => settings.maxTextureSize                           = x );
+            m_resizeAlgorithm.Override( x => settings.resizeAlgorithm                         = x );
+            m_format.Override( x => settings.format                                           = x );
+            m_textureCompression.Override( x => settings.textureCompression                   = x );
+            m_compressionQuality.Override( x => settings.compressionQuality                   = x );
+            m_crunchedCompression.Override( x => settings.crunchedCompression                 = x );
+            m_allowsAlphaSplitting.Override( x => settings.allowsAlphaSplitting               = x );
+            m_androidEtc2FallbackOverride.Override( x => settings.androidETC2FallbackOverride = x );
         }
     }
 }
