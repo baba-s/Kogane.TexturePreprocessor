@@ -1,9 +1,9 @@
-﻿{
+{
     "name": "Kogane.TexturePreprocessor",
     "rootNamespace": "",
     "references": [
         "GUID:8a5c2dc03f8c4a3a8e0d68ca280340ab",
-        "Kogane.PreprocessorSettingsBase"
+        "GUID:7721187358b82e149b501d9b8c06b3d2"
     ],
     "includePlatforms": [
         "Editor"
