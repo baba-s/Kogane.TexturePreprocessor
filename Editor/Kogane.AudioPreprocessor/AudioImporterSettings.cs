@@ -64,25 +64,10 @@ namespace Kogane.Internal
                     .Apply( importer.defaultSampleSettings );
             }
 
-            if ( m_standaloneSettings != null )
-            {
-                Apply( importer, "Standalone", m_standaloneSettings );
-            }
-
-            if ( m_iPhoneSettings != null )
-            {
-                Apply( importer, "iPhone", m_iPhoneSettings );
-            }
-
-            if ( m_androidSettings != null )
-            {
-                Apply( importer, "Android", m_androidSettings );
-            }
-
-            if ( m_webGLSettings != null )
-            {
-                Apply( importer, "WebGL", m_webGLSettings );
-            }
+            Apply( importer, "Standalone", m_standaloneSettings );
+            Apply( importer, "iPhone", m_iPhoneSettings );
+            Apply( importer, "Android", m_androidSettings );
+            Apply( importer, "WebGL", m_webGLSettings );
         }
 
         private static void Apply
@@ -92,6 +77,8 @@ namespace Kogane.Internal
             AudioImporterPlatformSettings settings
         )
         {
+            if ( settings == null ) return;
+
             if ( settings.Overridden )
             {
                 importer.SetOverrideSampleSettings
