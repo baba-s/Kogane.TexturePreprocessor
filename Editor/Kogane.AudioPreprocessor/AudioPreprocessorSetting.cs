@@ -6,7 +6,7 @@ namespace Kogane.Internal
     /// アセットのパスに紐づくオーディオの Import Settings を管理するクラス
     /// </summary>
     [Serializable]
-    internal sealed class AudioPreprocessorSetting : PreprocessorSettingBaseT<AudioImporterSettings>
+    internal sealed class AudioPreprocessorSetting : PreprocessorSettingBase<AudioImporterSettings>
     {
     }
 }

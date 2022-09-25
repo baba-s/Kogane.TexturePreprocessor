@@ -15,7 +15,7 @@ namespace Kogane.Internal
     /// アセットのパスに紐づく SpriteAtlas の Import Settings を管理するクラス
     /// </summary>
     [Serializable]
-    internal sealed class SpriteAtlasPreprocessorSetting : PreprocessorSettingBaseT<SpriteAtlasImporterSettings>
+    internal sealed class SpriteAtlasPreprocessorSetting : PreprocessorSettingBase<SpriteAtlasImporterSettings>
     {
     }
 }

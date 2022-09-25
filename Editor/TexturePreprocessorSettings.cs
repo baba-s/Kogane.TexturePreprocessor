@@ -15,7 +15,7 @@ namespace Kogane.Internal
     /// アセットのパスに紐づくテクスチャの Import Settings を管理するクラス
     /// </summary>
     [Serializable]
-    internal sealed class TexturePreprocessorSetting : PreprocessorSettingBaseT<TextureImporterSettings>
+    internal sealed class TexturePreprocessorSetting : PreprocessorSettingBase<TextureImporterSettings>
     {
     }
 }

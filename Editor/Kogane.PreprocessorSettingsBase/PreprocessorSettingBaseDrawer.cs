@@ -6,8 +6,8 @@ namespace Kogane.Internal
     /// <summary>
     /// PreprocessorSettingBase の Inspector を管理するエディタ拡張
     /// </summary>
-    [CustomPropertyDrawer( typeof( PreprocessorSettingBase ), true )]
-    internal sealed class PreprocessorSettingDrawer : PropertyDrawer
+    [CustomPropertyDrawer( typeof( PreprocessorSettingBase<> ), true )]
+    internal sealed class PreprocessorSettingBaseDrawer : PropertyDrawer
     {
         //==============================================================================
         // 関数
