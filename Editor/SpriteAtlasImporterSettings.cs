@@ -48,87 +48,44 @@ namespace Kogane.Internal
         {
             var packingSettings = spriteAtlas.GetPackingSettings();
 
-            if ( m_enableRotation.IsOverride )
-            {
-                packingSettings.enableRotation = m_enableRotation;
-            }
-
-            if ( m_enableTightPacking.IsOverride )
-            {
-                packingSettings.enableTightPacking = m_enableTightPacking;
-            }
-
-            if ( m_padding.IsOverride )
-            {
-                packingSettings.padding = m_padding;
-            }
+            m_enableRotation.Override( x => packingSettings.enableRotation         = x );
+            m_enableTightPacking.Override( x => packingSettings.enableTightPacking = x );
+            m_padding.Override( x => packingSettings.padding                       = x );
 
             spriteAtlas.SetPackingSettings( packingSettings );
 
             var textureSettings = spriteAtlas.GetTextureSettings();
 
-            if ( m_readable.IsOverride )
-            {
-                textureSettings.readable = m_readable;
-            }
-
-            if ( m_generateMipMaps.IsOverride )
-            {
-                textureSettings.generateMipMaps = m_generateMipMaps;
-            }
-
-            if ( m_sRGB.IsOverride )
-            {
-                textureSettings.sRGB = m_sRGB;
-            }
-
-            if ( m_filterMode.IsOverride )
-            {
-                textureSettings.filterMode = m_filterMode;
-            }
-
-            if ( m_anisoLevel.IsOverride )
-            {
-                textureSettings.anisoLevel = m_anisoLevel;
-            }
+            m_readable.Override( x => textureSettings.readable               = x );
+            m_generateMipMaps.Override( x => textureSettings.generateMipMaps = x );
+            m_sRGB.Override( x => textureSettings.sRGB                       = x );
+            m_filterMode.Override( x => textureSettings.filterMode           = x );
+            m_anisoLevel.Override( x => textureSettings.anisoLevel           = x );
 
             spriteAtlas.SetTextureSettings( textureSettings );
 
-            if ( m_defaultSettings != null )
-            {
-                var platformSettings = spriteAtlas.GetPlatformSettings( "DefaultTexturePlatform" );
-                m_defaultSettings.Apply( platformSettings );
-                spriteAtlas.SetPlatformSettings( platformSettings );
-            }
+            ApplyPlatform( spriteAtlas, "DefaultTexturePlatform", m_defaultSettings );
+            ApplyPlatform( spriteAtlas, "Standalone", m_standaloneSettings );
+            ApplyPlatform( spriteAtlas, "iPhone", m_iPhoneSettings );
+            ApplyPlatform( spriteAtlas, "Android", m_androidSettings );
+            ApplyPlatform( spriteAtlas, "WebGL", m_webGLSettings );
+        }
 
-            if ( m_standaloneSettings != null )
-            {
-                var platformSettings = spriteAtlas.GetPlatformSettings( "Standalone" );
-                m_standaloneSettings.Apply( platformSettings );
-                spriteAtlas.SetPlatformSettings( platformSettings );
-            }
+        /// <summary>
+        /// プラットフォームごとの設定を適用します
+        /// </summary>
+        private static void ApplyPlatform
+        (
+            SpriteAtlas                     spriteAtlas,
+            string                          buildTarget,
+            TextureImporterPlatformSettings settings
+        )
+        {
+            if ( settings == null ) return;
 
-            if ( m_iPhoneSettings != null )
-            {
-                var platformSettings = spriteAtlas.GetPlatformSettings( "iPhone" );
-                platformSettings.overridden = true;
-                m_iPhoneSettings.Apply( platformSettings );
-                spriteAtlas.SetPlatformSettings( platformSettings );
-            }
-
-            if ( m_androidSettings != null )
-            {
-                var platformSettings = spriteAtlas.GetPlatformSettings( "Android" );
-                m_androidSettings.Apply( platformSettings );
-                spriteAtlas.SetPlatformSettings( platformSettings );
-            }
-
-            if ( m_webGLSettings != null )
-            {
-                var platformSettings = spriteAtlas.GetPlatformSettings( "WebGL" );
-                m_webGLSettings.Apply( platformSettings );
-                spriteAtlas.SetPlatformSettings( platformSettings );
-            }
+            var platformSettings = spriteAtlas.GetPlatformSettings( buildTarget );
+            settings.Apply( spriteAtlas.GetPlatformSettings( buildTarget ) );
+            spriteAtlas.SetPlatformSettings( platformSettings );
         }
     }
 }
