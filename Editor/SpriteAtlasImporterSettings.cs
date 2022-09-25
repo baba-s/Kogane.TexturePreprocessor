@@ -18,17 +18,17 @@ namespace Kogane.Internal
         //================================================================================
         // 変数(SerializeField)
         //================================================================================
-        [SerializeField] private OverrideBoolValue m_enableRotation     = new( "Allow Rotation", true );
-        [SerializeField] private OverrideBoolValue m_enableTightPacking = new( "Tight Packing", true );
-        [SerializeField] private OverrideIntValue  m_padding            = new( "Padding", 4 );
+        [SerializeField] private OverrideValue<bool> m_enableRotation     = new( "Allow Rotation", true );
+        [SerializeField] private OverrideValue<bool> m_enableTightPacking = new( "Tight Packing", true );
+        [SerializeField] private OverrideValue<int>  m_padding            = new( "Padding", 4 );
 
         [Space( SPACE_HEIGHT )]
-        [SerializeField] private OverrideBoolValue m_readable = new( "Read/Write Enabled", false );
+        [SerializeField] private OverrideValue<bool> m_readable = new( "Read/Write Enabled", false );
 
-        [SerializeField] private OverrideBoolValue  m_generateMipMaps = new( "Generate Mip Maps", false );
-        [SerializeField] private OverrideBoolValue  m_sRGB            = new( "sRGB", true );
-        [SerializeField] private OverrideFilterMode m_filterMode      = new( "Filter Mode", FilterMode.Bilinear );
-        [SerializeField] private OverrideIntValue   m_anisoLevel      = new( "Aniso Level", 1 );
+        [SerializeField] private OverrideValue<bool>       m_generateMipMaps = new( "Generate Mip Maps", false );
+        [SerializeField] private OverrideValue<bool>       m_sRGB            = new( "sRGB", true );
+        [SerializeField] private OverrideValue<FilterMode> m_filterMode      = new( "Filter Mode", FilterMode.Bilinear );
+        [SerializeField] private OverrideValue<int>        m_anisoLevel      = new( "Aniso Level", 1 );
 
         [Space( SPACE_HEIGHT )]
         [SerializeField] private TextureImporterPlatformSettings m_defaultSettings;

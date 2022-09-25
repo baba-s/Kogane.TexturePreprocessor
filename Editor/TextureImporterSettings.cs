@@ -17,48 +17,48 @@ namespace Kogane.Internal
         //================================================================================
         // 変数(SerializeField)
         //================================================================================
-        [SerializeField] private OverrideTextureImporterType  m_textureType  = new( "Texture Type", TextureImporterType.Default );
-        [SerializeField] private OverrideTextureImporterShape m_textureShape = new( "Texture Shape", TextureImporterShape.Texture2D );
+        [SerializeField] private OverrideValue<TextureImporterType>  m_textureType  = new( "Texture Type", TextureImporterType.Default );
+        [SerializeField] private OverrideValue<TextureImporterShape> m_textureShape = new( "Texture Shape", TextureImporterShape.Texture2D );
 
         [Space( SPACE_HEIGHT )]
-        [SerializeField] private OverrideSpriteImportMode m_spriteImportMode = new( "Sprite Mode", SpriteImportMode.Single );
+        [SerializeField] private OverrideValue<SpriteImportMode> m_spriteImportMode = new( "Sprite Mode", SpriteImportMode.Single );
 
-        [SerializeField] private OverrideIntValue        m_spritePixelsPerUnit                = new( "Pixels Per Unit", 100 );
-        [SerializeField] private OverrideSpriteMeshType  m_spriteMeshType                     = new( "Mesh Type", SpriteMeshType.Tight );
-        [SerializeField] private OverrideUintValue       m_spriteExtrude                      = new( "Extrude Edges", 1 );
-        [SerializeField] private OverrideSpriteAlignment m_spriteAlignment                    = new( "Pivot", SpriteAlignment.Center );
-        [SerializeField] private OverrideVector2         m_spritePivot                        = new( "Pivot Custom", new Vector2( 0.5f, 0.5f ) );
-        [SerializeField] private OverrideBoolValue       m_spriteGenerateFallbackPhysicsShape = new( "Generate Physics Shape", true );
-
-        [Space( SPACE_HEIGHT )]
-        [SerializeField] private OverrideBoolValue m_sRGBTexture = new( "sRGB (Color Texture)", true );
-
-        [SerializeField] private OverrideTextureImporterAlphaSource m_alphaSource         = new( "Alpha Source", TextureImporterAlphaSource.FromInput );
-        [SerializeField] private OverrideBoolValue                  m_alphaIsTransparency = new( "Alpha Is Transparency", false );
+        [SerializeField] private OverrideValue<int>             m_spritePixelsPerUnit                = new( "Pixels Per Unit", 100 );
+        [SerializeField] private OverrideValue<SpriteMeshType>  m_spriteMeshType                     = new( "Mesh Type", SpriteMeshType.Tight );
+        [SerializeField] private OverrideValue<uint>            m_spriteExtrude                      = new( "Extrude Edges", 1 );
+        [SerializeField] private OverrideValue<SpriteAlignment> m_spriteAlignment                    = new( "Pivot", SpriteAlignment.Center );
+        [SerializeField] private OverrideValue<Vector2>         m_spritePivot                        = new( "Pivot Custom", new Vector2( 0.5f, 0.5f ) );
+        [SerializeField] private OverrideValue<bool>            m_spriteGenerateFallbackPhysicsShape = new( "Generate Physics Shape", true );
 
         [Space( SPACE_HEIGHT )]
-        [SerializeField] private OverrideTextureImporterNPOTScale m_npotScale = new( "Non-Power of 2", TextureImporterNPOTScale.None );
+        [SerializeField] private OverrideValue<bool> m_sRGBTexture = new( "sRGB (Color Texture)", true );
 
-        [SerializeField] private OverrideBoolValue m_readable                 = new( "Read/Write Enabled", false );
-        [SerializeField] private OverrideBoolValue m_streamingMipmaps         = new( "Streaming Mipmaps", false );
-        [SerializeField] private OverrideIntValue  m_streamingMipmapsPriority = new( "Mip Map Priority", 0 );
-
-        [Space( SPACE_HEIGHT )]
-        [SerializeField] private OverrideBoolValue m_mipmapEnabled = new( "Generate Mip Maps", true );
-
-        [SerializeField] private OverrideBoolValue                m_borderMipmap            = new( "Border Mip Maps", false );
-        [SerializeField] private OverrideTextureImporterMipFilter m_mipmapFilter            = new( "Mip Map Filtering", TextureImporterMipFilter.BoxFilter );
-        [SerializeField] private OverrideBoolValue                m_mipMapsPreserveCoverage = new( "Mip Maps Preserve Coverage", false );
-        [SerializeField] private OverrideFloatValue               m_alphaTestReferenceValue = new( "Alpha Cutoff Value", 0.5f );
-        [SerializeField] private OverrideBoolValue                m_fadeOut                 = new( "Fadeout Mip Maps", false );
-        [SerializeField] private OverrideIntValue                 m_mipmapFadeDistanceStart = new( "Fade Range Start", 1 );
-        [SerializeField] private OverrideIntValue                 m_mipmapFadeDistanceEnd   = new( "Fade Range End", 3 );
+        [SerializeField] private OverrideValue<TextureImporterAlphaSource> m_alphaSource         = new( "Alpha Source", TextureImporterAlphaSource.FromInput );
+        [SerializeField] private OverrideValue<bool>                       m_alphaIsTransparency = new( "Alpha Is Transparency", false );
 
         [Space( SPACE_HEIGHT )]
-        [SerializeField] private OverrideTextureWrapMode m_wrapMode = new( "Wrap Mode", TextureWrapMode.Clamp );
+        [SerializeField] private OverrideValue<TextureImporterNPOTScale> m_npotScale = new( "Non-Power of 2", TextureImporterNPOTScale.None );
 
-        [SerializeField] private OverrideFilterMode m_filterMode = new( "Filter Mode", FilterMode.Bilinear );
-        [SerializeField] private OverrideIntValue   m_aniso      = new( "Aniso Level", 1 );
+        [SerializeField] private OverrideValue<bool> m_readable                 = new( "Read/Write Enabled", false );
+        [SerializeField] private OverrideValue<bool> m_streamingMipmaps         = new( "Streaming Mipmaps", false );
+        [SerializeField] private OverrideValue<int>  m_streamingMipmapsPriority = new( "Mip Map Priority", 0 );
+
+        [Space( SPACE_HEIGHT )]
+        [SerializeField] private OverrideValue<bool> m_mipmapEnabled = new( "Generate Mip Maps", true );
+
+        [SerializeField] private OverrideValue<bool>                     m_borderMipmap            = new( "Border Mip Maps", false );
+        [SerializeField] private OverrideValue<TextureImporterMipFilter> m_mipmapFilter            = new( "Mip Map Filtering", TextureImporterMipFilter.BoxFilter );
+        [SerializeField] private OverrideValue<bool>                     m_mipMapsPreserveCoverage = new( "Mip Maps Preserve Coverage", false );
+        [SerializeField] private OverrideValue<float>                    m_alphaTestReferenceValue = new( "Alpha Cutoff Value", 0.5f );
+        [SerializeField] private OverrideValue<bool>                     m_fadeOut                 = new( "Fadeout Mip Maps", false );
+        [SerializeField] private OverrideValue<int>                      m_mipmapFadeDistanceStart = new( "Fade Range Start", 1 );
+        [SerializeField] private OverrideValue<int>                      m_mipmapFadeDistanceEnd   = new( "Fade Range End", 3 );
+
+        [Space( SPACE_HEIGHT )]
+        [SerializeField] private OverrideValue<TextureWrapMode> m_wrapMode = new( "Wrap Mode", TextureWrapMode.Clamp );
+
+        [SerializeField] private OverrideValue<FilterMode> m_filterMode = new( "Filter Mode", FilterMode.Bilinear );
+        [SerializeField] private OverrideValue<int>        m_aniso      = new( "Aniso Level", 1 );
 
         [Space( SPACE_HEIGHT )]
         [SerializeField] private TextureImporterPlatformSettings m_defaultSettings;
