@@ -11,11 +11,6 @@ namespace Kogane.Internal
     internal sealed class SpriteAtlasPreprocessor : AssetPostprocessor
     {
         //================================================================================
-        // 変数(static)
-        //================================================================================
-        private static SpriteAtlasPreprocessorSettings m_settings;
-
-        //================================================================================
         // 関数
         //================================================================================
         /// <summary>
@@ -32,19 +27,10 @@ namespace Kogane.Internal
             // バッチモードの場合は何もしません
             if ( Application.isBatchMode ) return;
 
-            // 設定ファイルをまだ読み込んでいない場合は読み込みます
-            if ( m_settings == null )
-            {
-                m_settings = AssetDatabase
-                        .FindAssets( "t:SpriteAtlasPreprocessorSettings" )
-                        .Select( x => AssetDatabase.GUIDToAssetPath( x ) )
-                        .Select( x => AssetDatabase.LoadAssetAtPath<SpriteAtlasPreprocessorSettings>( x ) )
-                        .FirstOrDefault()
-                    ;
-            }
+            var preprocessorSettings = SpriteAtlasPreprocessorSettings.instance;
 
             // 設定ファイルが存在しない場合は何もしません
-            if ( m_settings == null ) return;
+            if ( preprocessorSettings == null ) return;
 
             var list = importedAssets
                     .Where( x => x.EndsWith( ".spriteatlas" ) )
@@ -58,7 +44,7 @@ namespace Kogane.Internal
             foreach ( var (assetPath, spriteAtlas) in list )
             {
                 // 設定ファイルから該当する Import Setting の情報を取得します
-                var settings = m_settings.List.FirstOrDefault( x => assetPath.StartsWith( x.Path ) );
+                var settings = preprocessorSettings.FirstOrDefault( x => assetPath.StartsWith( x.Path ) );
 
                 if ( settings == null ) return;
 

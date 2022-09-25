@@ -1,21 +1,31 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Kogane.Internal
 {
-    /// <summary>
-    /// アセットのパスごとに SpriteAtlas の Import Settings を管理するクラス
-    /// </summary>
-    [CreateAssetMenu( fileName = "SpriteAtlasPreprocessorSettings", menuName = "UniTexturePreprocessor/SpriteAtlasPreprocessorSettings", order = 10069 )]
-    internal sealed class SpriteAtlasPreprocessorSettings : PreprocessorSettingsBaseT<SpriteAtlasPreprocessorSetting>
+    [FilePath( "ProjectSettings/Kogane/SpriteAtlasPreprocessorSettings.asset", FilePathAttribute.Location.ProjectFolder )]
+    internal sealed class SpriteAtlasPreprocessorSettings :
+        ScriptableSingleton<SpriteAtlasPreprocessorSettings>,
+        IEnumerable<SpriteAtlasPreprocessorSetting>
     {
-    }
+        [SerializeField] private SpriteAtlasPreprocessorSetting[] m_array = Array.Empty<SpriteAtlasPreprocessorSetting>();
 
-    /// <summary>
-    /// アセットのパスに紐づく SpriteAtlas の Import Settings を管理するクラス
-    /// </summary>
-    [Serializable]
-    internal sealed class SpriteAtlasPreprocessorSetting : PreprocessorSettingBase<SpriteAtlasImporterSettings>
-    {
+        public void Save()
+        {
+            Save( true );
+        }
+
+        public IEnumerator<SpriteAtlasPreprocessorSetting> GetEnumerator()
+        {
+            return ( ( IEnumerable<SpriteAtlasPreprocessorSetting> )m_array ).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }
