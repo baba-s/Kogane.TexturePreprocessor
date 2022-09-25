@@ -21,7 +21,7 @@ namespace Kogane.Internal
             {
                 position.height = EditorGUIUtility.singleLineHeight;
 
-                var labelWidth        = 96;
+                var labelWidth        = 112;
                 var widthRate         = 0.575f;
                 var pathLabelRect     = new Rect( position ) { width = labelWidth, };
                 var pathRect          = new Rect( position ) { x     = labelWidth, width = position.width - labelWidth * widthRate, };
@@ -44,10 +44,15 @@ namespace Kogane.Internal
             }
         }
 
+        public override float GetPropertyHeight( SerializedProperty property, GUIContent label )
+        {
+            return 40;
+        }
+
         /// <summary>
         /// 指定された矩形にドラッグ & ドロップされたアセットのパスを返します
         /// </summary>
-        private bool GetDragAndDropAssetPath( Rect rect, out string assetPath )
+        private static bool GetDragAndDropAssetPath( Rect rect, out string assetPath )
         {
             var current   = Event.current;
             var controlId = GUIUtility.GetControlID( FocusType.Passive );
