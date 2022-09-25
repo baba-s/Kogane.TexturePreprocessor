@@ -12,15 +12,15 @@ namespace Kogane.Internal
         //================================================================================
         // 変数(SerializeField)
         //================================================================================
-        [SerializeField] private OverrideBoolValue                   m_overridden                  = new OverrideBoolValue( "Override", false );
-        [SerializeField] private OverrideIntValue                    m_maxTextureSize              = new OverrideIntValue( "Max Size", 2048 );
-        [SerializeField] private OverrideTextureResizeAlgorithm      m_resizeAlgorithm             = new OverrideTextureResizeAlgorithm( "Resize Algorithm", TextureResizeAlgorithm.Mitchell );
-        [SerializeField] private OverrideTextureImporterFormat       m_format                      = new OverrideTextureImporterFormat( "Format", TextureImporterFormat.Automatic );
-        [SerializeField] private OverrideTextureImporterCompression  m_textureCompression          = new OverrideTextureImporterCompression( "Compression", TextureImporterCompression.Compressed );
-        [SerializeField] private OverrideBoolValue                   m_crunchedCompression         = new OverrideBoolValue( "Use Crunch Compression", false );
-        [SerializeField] private OverrideIntValue                    m_compressionQuality          = new OverrideIntValue( "Compressor Quality", 50 );
-        [SerializeField] private OverrideBoolValue                   m_allowsAlphaSplitting        = new OverrideBoolValue( "Split Alpha Channel", false );
-        [SerializeField] private OverrideAndroidETC2FallbackOverride m_androidEtc2FallbackOverride = new OverrideAndroidETC2FallbackOverride( "Override ETC2 fallback", AndroidETC2FallbackOverride.UseBuildSettings );
+        [SerializeField] private OverrideBoolValue                   m_overridden                  = new( "Override", false );
+        [SerializeField] private OverrideIntValue                    m_maxTextureSize              = new( "Max Size", 2048 );
+        [SerializeField] private OverrideTextureResizeAlgorithm      m_resizeAlgorithm             = new( "Resize Algorithm", TextureResizeAlgorithm.Mitchell );
+        [SerializeField] private OverrideTextureImporterFormat       m_format                      = new( "Format", TextureImporterFormat.Automatic );
+        [SerializeField] private OverrideTextureImporterCompression  m_textureCompression          = new( "Compression", TextureImporterCompression.Compressed );
+        [SerializeField] private OverrideBoolValue                   m_crunchedCompression         = new( "Use Crunch Compression", false );
+        [SerializeField] private OverrideIntValue                    m_compressionQuality          = new( "Compressor Quality", 50 );
+        [SerializeField] private OverrideBoolValue                   m_allowsAlphaSplitting        = new( "Split Alpha Channel", false );
+        [SerializeField] private OverrideAndroidETC2FallbackOverride m_androidEtc2FallbackOverride = new( "Override ETC2 fallback", AndroidETC2FallbackOverride.UseBuildSettings );
 
         //================================================================================
         // 関数
