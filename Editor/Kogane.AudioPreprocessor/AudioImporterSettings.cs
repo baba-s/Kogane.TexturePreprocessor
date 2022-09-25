@@ -26,7 +26,7 @@ namespace Kogane.Internal
         [SerializeField] private AudioImporterPlatformSettings m_defaultSettings;
 
         [SerializeField] private AudioImporterPlatformSettings m_standaloneSettings;
-        [SerializeField] private AudioImporterPlatformSettings m_iPhoneSettings;
+        [SerializeField] private AudioImporterPlatformSettings m_iOSSettings;
         [SerializeField] private AudioImporterPlatformSettings m_androidSettings;
         [SerializeField] private AudioImporterPlatformSettings m_webGLSettings;
 
@@ -38,46 +38,32 @@ namespace Kogane.Internal
         /// </summary>
         public void Apply( AudioImporter importer )
         {
-            if ( m_forceToMono.IsOverride )
-            {
-                importer.forceToMono = m_forceToMono;
-            }
-
-            if ( m_loadInBackground.IsOverride )
-            {
-                importer.loadInBackground = m_loadInBackground;
-            }
-
-            if ( m_ambisonic.IsOverride )
-            {
-                importer.ambisonic = m_ambisonic;
-            }
-
-            if ( m_preloadAudioData.IsOverride )
-            {
-                importer.preloadAudioData = m_preloadAudioData;
-            }
+            m_forceToMono.Override( x => importer.forceToMono           = x );
+            m_loadInBackground.Override( x => importer.loadInBackground = x );
+            m_ambisonic.Override( x => importer.ambisonic               = x );
+            m_preloadAudioData.Override( x => importer.preloadAudioData = x );
 
             if ( m_defaultSettings != null )
             {
-                importer.defaultSampleSettings = m_defaultSettings
-                    .Apply( importer.defaultSampleSettings );
+                importer.defaultSampleSettings = m_defaultSettings.Apply( importer.defaultSampleSettings );
             }
 
-            Apply( importer, "Standalone", m_standaloneSettings );
-            Apply( importer, "iPhone", m_iPhoneSettings );
-            Apply( importer, "Android", m_androidSettings );
-            Apply( importer, "WebGL", m_webGLSettings );
+            Apply( importer, BuildTargetGroup.Standalone, m_standaloneSettings );
+            Apply( importer, BuildTargetGroup.iOS, m_iOSSettings );
+            Apply( importer, BuildTargetGroup.Android, m_androidSettings );
+            Apply( importer, BuildTargetGroup.WebGL, m_webGLSettings );
         }
 
         private static void Apply
         (
             AudioImporter                 importer,
-            string                        platform,
+            BuildTargetGroup              buildTargetGroup,
             AudioImporterPlatformSettings settings
         )
         {
             if ( settings == null ) return;
+
+            var platform = buildTargetGroup.ToString();
 
             if ( settings.Overridden )
             {
