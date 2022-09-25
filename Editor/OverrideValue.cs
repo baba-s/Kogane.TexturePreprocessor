@@ -11,7 +11,7 @@ namespace Kogane.Internal
     [Serializable]
     internal abstract class OverrideValue<T> : OverrideValueBase
     {
-        [SerializeField] private string m_label = string.Empty;
+        [SerializeField] private string m_label;
         [SerializeField] private bool   m_isOverride;
         [SerializeField] private T      m_value;
 
