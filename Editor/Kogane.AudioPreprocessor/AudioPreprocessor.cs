@@ -26,7 +26,7 @@ namespace Kogane.Internal
             if ( preprocessorSettings == null ) return;
 
             // 設定ファイルから該当する Import Setting の情報を取得します
-            var settings = preprocessorSettings.List
+            var settings = preprocessorSettings
                     .Where( x => !string.IsNullOrWhiteSpace( x.Path ) )
                     .FirstOrDefault( x => assetPath.StartsWith( x.Path ) )
                 ;
