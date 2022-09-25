@@ -106,40 +106,11 @@ namespace Kogane.Internal
             m_filterMode.Override( x => settings.filterMode                                                 = x );
             m_aniso.Override( x => settings.aniso                                                           = x );
 
-            if ( m_defaultSettings != null )
-            {
-                var platformSettings = importer.GetPlatformTextureSettings( "DefaultTexturePlatform" );
-                m_defaultSettings.Apply( platformSettings );
-                importer.SetPlatformTextureSettings( platformSettings );
-            }
-
-            if ( m_standaloneSettings != null )
-            {
-                var platformSettings = importer.GetPlatformTextureSettings( "Standalone" );
-                m_standaloneSettings.Apply( platformSettings );
-                importer.SetPlatformTextureSettings( platformSettings );
-            }
-
-            if ( m_iPhoneSettings != null )
-            {
-                var platformSettings = importer.GetPlatformTextureSettings( "iPhone" );
-                m_iPhoneSettings.Apply( platformSettings );
-                importer.SetPlatformTextureSettings( platformSettings );
-            }
-
-            if ( m_androidSettings != null )
-            {
-                var platformSettings = importer.GetPlatformTextureSettings( "Android" );
-                m_androidSettings.Apply( platformSettings );
-                importer.SetPlatformTextureSettings( platformSettings );
-            }
-
-            if ( m_webGLSettings != null )
-            {
-                var platformSettings = importer.GetPlatformTextureSettings( "WebGL" );
-                m_webGLSettings.Apply( platformSettings );
-                importer.SetPlatformTextureSettings( platformSettings );
-            }
+            ApplyPlatform( importer, "DefaultTexturePlatform", m_defaultSettings );
+            ApplyPlatform( importer, "Standalone", m_standaloneSettings );
+            ApplyPlatform( importer, "iPhone", m_iPhoneSettings );
+            ApplyPlatform( importer, "Android", m_androidSettings );
+            ApplyPlatform( importer, "WebGL", m_webGLSettings );
 
             importer.SetTextureSettings( settings );
 
@@ -148,6 +119,23 @@ namespace Kogane.Internal
             // また、Sprite Mode は SetTextureSettings の後に設定しないと反映されないので
             // SetTextureSettings の後に設定するようにしています
             m_spriteImportMode.Override( x => importer.spriteImportMode = x );
+        }
+
+        /// <summary>
+        /// プラットフォームごとの設定を適用します
+        /// </summary>
+        private static void ApplyPlatform
+        (
+            TextureImporter                 importer,
+            string                          buildTarget,
+            TextureImporterPlatformSettings settings
+        )
+        {
+            if ( settings == null ) return;
+
+            var platformSettings = importer.GetPlatformTextureSettings( buildTarget );
+            settings.Apply( platformSettings );
+            importer.SetPlatformTextureSettings( platformSettings );
         }
     }
 }
