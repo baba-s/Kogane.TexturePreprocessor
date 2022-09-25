@@ -81,132 +81,132 @@ namespace Kogane.Internal
 
             if ( m_textureType.IsOverride )
             {
-                settings.textureType = m_textureType.Value;
+                settings.textureType = m_textureType;
             }
 
             if ( m_textureShape.IsOverride )
             {
-                settings.textureShape = m_textureShape.Value;
+                settings.textureShape = m_textureShape;
             }
 
             if ( m_spritePixelsPerUnit.IsOverride )
             {
-                settings.spritePixelsPerUnit = m_spritePixelsPerUnit.Value;
+                settings.spritePixelsPerUnit = m_spritePixelsPerUnit;
             }
 
             if ( m_spriteMeshType.IsOverride )
             {
-                settings.spriteMeshType = m_spriteMeshType.Value;
+                settings.spriteMeshType = m_spriteMeshType;
             }
 
             if ( m_spriteExtrude.IsOverride )
             {
-                settings.spriteExtrude = m_spriteExtrude.Value;
+                settings.spriteExtrude = m_spriteExtrude;
             }
 
             if ( m_spriteAlignment.IsOverride )
             {
-                settings.spriteAlignment = ( int )m_spriteAlignment.Value;
+                settings.spriteAlignment = ( int )m_spriteAlignment;
             }
 
             if ( m_spritePivot.IsOverride )
             {
-                settings.spritePivot = m_spritePivot.Value;
+                settings.spritePivot = m_spritePivot;
             }
 
             if ( m_spriteGenerateFallbackPhysicsShape.IsOverride )
             {
-                settings.spriteGenerateFallbackPhysicsShape = m_spriteGenerateFallbackPhysicsShape.Value;
+                settings.spriteGenerateFallbackPhysicsShape = m_spriteGenerateFallbackPhysicsShape;
             }
 
             if ( m_sRGBTexture.IsOverride )
             {
-                settings.sRGBTexture = m_sRGBTexture.Value;
+                settings.sRGBTexture = m_sRGBTexture;
             }
 
             if ( m_alphaSource.IsOverride )
             {
-                settings.alphaSource = m_alphaSource.Value;
+                settings.alphaSource = m_alphaSource;
             }
 
             if ( m_alphaIsTransparency.IsOverride )
             {
-                settings.alphaIsTransparency = m_alphaIsTransparency.Value;
+                settings.alphaIsTransparency = m_alphaIsTransparency;
             }
 
             if ( m_npotScale.IsOverride )
             {
-                settings.npotScale = m_npotScale.Value;
+                settings.npotScale = m_npotScale;
             }
 
             if ( m_readable.IsOverride )
             {
-                settings.readable = m_readable.Value;
+                settings.readable = m_readable;
             }
 
             if ( m_streamingMipmaps.IsOverride )
             {
-                settings.streamingMipmaps = m_streamingMipmaps.Value;
+                settings.streamingMipmaps = m_streamingMipmaps;
             }
 
             if ( m_streamingMipmapsPriority.IsOverride )
             {
-                settings.streamingMipmapsPriority = m_streamingMipmapsPriority.Value;
+                settings.streamingMipmapsPriority = m_streamingMipmapsPriority;
             }
 
             if ( m_mipmapEnabled.IsOverride )
             {
-                settings.mipmapEnabled = m_mipmapEnabled.Value;
+                settings.mipmapEnabled = m_mipmapEnabled;
             }
 
             if ( m_borderMipmap.IsOverride )
             {
-                settings.borderMipmap = m_borderMipmap.Value;
+                settings.borderMipmap = m_borderMipmap;
             }
 
             if ( m_mipmapFilter.IsOverride )
             {
-                settings.mipmapFilter = m_mipmapFilter.Value;
+                settings.mipmapFilter = m_mipmapFilter;
             }
 
             if ( m_mipMapsPreserveCoverage.IsOverride )
             {
-                settings.mipMapsPreserveCoverage = m_mipMapsPreserveCoverage.Value;
+                settings.mipMapsPreserveCoverage = m_mipMapsPreserveCoverage;
             }
 
             if ( m_alphaTestReferenceValue.IsOverride )
             {
-                settings.alphaTestReferenceValue = m_alphaTestReferenceValue.Value;
+                settings.alphaTestReferenceValue = m_alphaTestReferenceValue;
             }
 
             if ( m_fadeOut.IsOverride )
             {
-                settings.fadeOut = m_fadeOut.Value;
+                settings.fadeOut = m_fadeOut;
             }
 
             if ( m_mipmapFadeDistanceStart.IsOverride )
             {
-                settings.mipmapFadeDistanceStart = m_mipmapFadeDistanceStart.Value;
+                settings.mipmapFadeDistanceStart = m_mipmapFadeDistanceStart;
             }
 
             if ( m_mipmapFadeDistanceEnd.IsOverride )
             {
-                settings.mipmapFadeDistanceEnd = m_mipmapFadeDistanceEnd.Value;
+                settings.mipmapFadeDistanceEnd = m_mipmapFadeDistanceEnd;
             }
 
             if ( m_wrapMode.IsOverride )
             {
-                settings.wrapMode = m_wrapMode.Value;
+                settings.wrapMode = m_wrapMode;
             }
 
             if ( m_filterMode.IsOverride )
             {
-                settings.filterMode = m_filterMode.Value;
+                settings.filterMode = m_filterMode;
             }
 
             if ( m_aniso.IsOverride )
             {
-                settings.aniso = m_aniso.Value;
+                settings.aniso = m_aniso;
             }
 
             if ( m_defaultSettings != null )
@@ -252,7 +252,7 @@ namespace Kogane.Internal
             // SetTextureSettings の後に設定するようにしています
             if ( m_spriteImportMode.IsOverride )
             {
-                importer.spriteImportMode = m_spriteImportMode.Value;
+                importer.spriteImportMode = m_spriteImportMode;
             }
         }
     }

@@ -23,6 +23,8 @@ namespace Kogane
             m_label = label;
             m_value = defaultValue;
         }
+
+        public static implicit operator T( OverrideValue<T> value ) => value.Value;
     }
 
     [Serializable]

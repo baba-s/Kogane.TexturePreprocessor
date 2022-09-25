@@ -32,47 +32,47 @@ namespace Kogane.Internal
         {
             if ( m_overridden.IsOverride )
             {
-                settings.overridden = m_overridden.Value;
+                settings.overridden = m_overridden;
             }
 
             if ( m_maxTextureSize.IsOverride )
             {
-                settings.maxTextureSize = m_maxTextureSize.Value;
+                settings.maxTextureSize = m_maxTextureSize;
             }
 
             if ( m_resizeAlgorithm.IsOverride )
             {
-                settings.resizeAlgorithm = m_resizeAlgorithm.Value;
+                settings.resizeAlgorithm = m_resizeAlgorithm;
             }
 
             if ( m_format.IsOverride )
             {
-                settings.format = m_format.Value;
+                settings.format = m_format;
             }
 
             if ( m_textureCompression.IsOverride )
             {
-                settings.textureCompression = m_textureCompression.Value;
+                settings.textureCompression = m_textureCompression;
             }
 
             if ( m_compressionQuality.IsOverride )
             {
-                settings.compressionQuality = m_compressionQuality.Value;
+                settings.compressionQuality = m_compressionQuality;
             }
 
             if ( m_crunchedCompression.IsOverride )
             {
-                settings.crunchedCompression = m_crunchedCompression.Value;
+                settings.crunchedCompression = m_crunchedCompression;
             }
 
             if ( m_allowsAlphaSplitting.IsOverride )
             {
-                settings.allowsAlphaSplitting = m_allowsAlphaSplitting.Value;
+                settings.allowsAlphaSplitting = m_allowsAlphaSplitting;
             }
 
             if ( m_androidEtc2FallbackOverride.IsOverride )
             {
-                settings.androidETC2FallbackOverride = m_androidEtc2FallbackOverride.Value;
+                settings.androidETC2FallbackOverride = m_androidEtc2FallbackOverride;
             }
         }
     }

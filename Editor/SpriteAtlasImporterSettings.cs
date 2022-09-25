@@ -50,17 +50,17 @@ namespace Kogane.Internal
 
             if ( m_enableRotation.IsOverride )
             {
-                packingSettings.enableRotation = m_enableRotation.Value;
+                packingSettings.enableRotation = m_enableRotation;
             }
 
             if ( m_enableTightPacking.IsOverride )
             {
-                packingSettings.enableTightPacking = m_enableTightPacking.Value;
+                packingSettings.enableTightPacking = m_enableTightPacking;
             }
 
             if ( m_padding.IsOverride )
             {
-                packingSettings.padding = m_padding.Value;
+                packingSettings.padding = m_padding;
             }
 
             spriteAtlas.SetPackingSettings( packingSettings );
@@ -69,27 +69,27 @@ namespace Kogane.Internal
 
             if ( m_readable.IsOverride )
             {
-                textureSettings.readable = m_readable.Value;
+                textureSettings.readable = m_readable;
             }
 
             if ( m_generateMipMaps.IsOverride )
             {
-                textureSettings.generateMipMaps = m_generateMipMaps.Value;
+                textureSettings.generateMipMaps = m_generateMipMaps;
             }
 
             if ( m_sRGB.IsOverride )
             {
-                textureSettings.sRGB = m_sRGB.Value;
+                textureSettings.sRGB = m_sRGB;
             }
 
             if ( m_filterMode.IsOverride )
             {
-                textureSettings.filterMode = m_filterMode.Value;
+                textureSettings.filterMode = m_filterMode;
             }
 
             if ( m_anisoLevel.IsOverride )
             {
-                textureSettings.anisoLevel = m_anisoLevel.Value;
+                textureSettings.anisoLevel = m_anisoLevel;
             }
 
             spriteAtlas.SetTextureSettings( textureSettings );

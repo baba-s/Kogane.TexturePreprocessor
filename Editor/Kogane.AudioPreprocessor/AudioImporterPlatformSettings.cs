@@ -19,7 +19,7 @@ namespace Kogane.Internal
         [SerializeField] private OverrideAudioCompressionFormat m_compressionFormat  = new( "Compression Format", AudioCompressionFormat.Vorbis );
         [SerializeField] private OverrideFloatValue             m_quality            = new( "Quality", 1 );
 
-        public bool Overridden => m_overridden.Value;
+        public bool Overridden => m_overridden;
 
         //================================================================================
         // 関数
@@ -36,27 +36,27 @@ namespace Kogane.Internal
 
             if ( m_loadType.IsOverride )
             {
-                settings.loadType = m_loadType.Value;
+                settings.loadType = m_loadType;
             }
 
             if ( m_sampleRateSetting.IsOverride )
             {
-                settings.sampleRateSetting = m_sampleRateSetting.Value;
+                settings.sampleRateSetting = m_sampleRateSetting;
             }
 
             if ( m_sampleRateOverride.IsOverride )
             {
-                settings.sampleRateOverride = m_sampleRateOverride.Value;
+                settings.sampleRateOverride = m_sampleRateOverride;
             }
 
             if ( m_compressionFormat.IsOverride )
             {
-                settings.compressionFormat = m_compressionFormat.Value;
+                settings.compressionFormat = m_compressionFormat;
             }
 
             if ( m_quality.IsOverride )
             {
-                settings.quality = m_quality.Value;
+                settings.quality = m_quality;
             }
 
             return settings;

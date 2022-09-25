@@ -40,22 +40,22 @@ namespace Kogane.Internal
         {
             if ( m_forceToMono.IsOverride )
             {
-                importer.forceToMono = m_forceToMono.Value;
+                importer.forceToMono = m_forceToMono;
             }
 
             if ( m_loadInBackground.IsOverride )
             {
-                importer.loadInBackground = m_loadInBackground.Value;
+                importer.loadInBackground = m_loadInBackground;
             }
 
             if ( m_ambisonic.IsOverride )
             {
-                importer.ambisonic = m_ambisonic.Value;
+                importer.ambisonic = m_ambisonic;
             }
 
             if ( m_preloadAudioData.IsOverride )
             {
-                importer.preloadAudioData = m_preloadAudioData.Value;
+                importer.preloadAudioData = m_preloadAudioData;
             }
 
             if ( m_defaultSettings != null )
