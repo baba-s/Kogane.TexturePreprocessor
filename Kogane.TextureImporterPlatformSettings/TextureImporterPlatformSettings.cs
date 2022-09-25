@@ -1,13 +1,12 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Kogane.Internal
+namespace Kogane
 {
     /// <summary>
     /// テクスチャのプラットフォームごとの Import Settings を管理するクラス
     /// </summary>
-    [CreateAssetMenu( fileName = "TextureImporterPlatformSettings", menuName = "UniTexturePreprocessor/TextureImporterPlatformSettings", order = 10051 )]
-    internal sealed class TextureImporterPlatformSettings : ScriptableObject
+    public sealed class TextureImporterPlatformSettings : ScriptableObject
     {
         //================================================================================
         // 変数(SerializeField)

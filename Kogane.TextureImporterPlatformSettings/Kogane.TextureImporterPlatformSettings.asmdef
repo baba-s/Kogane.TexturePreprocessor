@@ -1,10 +1,8 @@
 {
-    "name": "Kogane.TexturePreprocessor",
+    "name": "Kogane.TextureImporterPlatformSettings",
     "rootNamespace": "",
     "references": [
-        "GUID:8a5c2dc03f8c4a3a8e0d68ca280340ab",
-        "GUID:7721187358b82e149b501d9b8c06b3d2",
-        "GUID:8de4a0ae82614899b1762d07234df08e"
+        "GUID:8a5c2dc03f8c4a3a8e0d68ca280340ab"
     ],
     "includePlatforms": [
         "Editor"
