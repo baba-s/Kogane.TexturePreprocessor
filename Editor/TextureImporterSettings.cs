@@ -72,7 +72,7 @@ namespace Kogane.Internal
         // 関数
         //================================================================================
         /// <summary>
-        /// 指定された TextureImporter に設定を適用します
+        /// 指定された Importer に設定を適用します
         /// </summary>
         public void Apply( TextureImporter importer )
         {
