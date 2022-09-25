@@ -19,45 +19,24 @@ namespace Kogane.Internal
         [SerializeField] private OverrideAudioCompressionFormat m_compressionFormat  = new( "Compression Format", AudioCompressionFormat.Vorbis );
         [SerializeField] private OverrideFloatValue             m_quality            = new( "Quality", 1 );
 
+        //================================================================================
+        // プロパティ
+        //================================================================================
         public bool Overridden => m_overridden;
 
         //================================================================================
         // 関数
         //================================================================================
         /// <summary>
-        /// 指定された AudioImporterPlatformSettings に設定を適用します
+        /// 指定された AudioImporterSampleSettings に設定を適用します
         /// </summary>
         public AudioImporterSampleSettings Apply( AudioImporterSampleSettings settings )
         {
-            // if ( m_overridden.IsOverride )
-            // {
-            //     settings.overridden = m_overridden.Value;
-            // }
-
-            if ( m_loadType.IsOverride )
-            {
-                settings.loadType = m_loadType;
-            }
-
-            if ( m_sampleRateSetting.IsOverride )
-            {
-                settings.sampleRateSetting = m_sampleRateSetting;
-            }
-
-            if ( m_sampleRateOverride.IsOverride )
-            {
-                settings.sampleRateOverride = m_sampleRateOverride;
-            }
-
-            if ( m_compressionFormat.IsOverride )
-            {
-                settings.compressionFormat = m_compressionFormat;
-            }
-
-            if ( m_quality.IsOverride )
-            {
-                settings.quality = m_quality;
-            }
+            m_loadType.Override( x => settings.loadType                     = x );
+            m_sampleRateSetting.Override( x => settings.sampleRateSetting   = x );
+            m_sampleRateOverride.Override( x => settings.sampleRateOverride = x );
+            m_compressionFormat.Override( x => settings.compressionFormat   = x );
+            m_quality.Override( x => settings.quality                       = x );
 
             return settings;
         }

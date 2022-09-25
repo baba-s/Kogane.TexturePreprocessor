@@ -24,6 +24,14 @@ namespace Kogane
             m_value = defaultValue;
         }
 
+        public void Override( Action<T> setter )
+        {
+            if ( m_isOverride )
+            {
+                setter( m_value );
+            }
+        }
+
         public static implicit operator T( OverrideValue<T> value ) => value.Value;
     }
 
