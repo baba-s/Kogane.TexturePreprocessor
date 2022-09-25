@@ -106,7 +106,7 @@ namespace Kogane.Internal
 
             if ( m_spriteAlignment.IsOverride )
             {
-                settings.spriteAlignment = ( int )m_spriteAlignment;
+                settings.spriteAlignment = ( int )m_spriteAlignment.Value;
             }
 
             if ( m_spritePivot.IsOverride )
