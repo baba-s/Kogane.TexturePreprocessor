@@ -20,14 +20,15 @@ namespace Kogane.Internal
         [SerializeField] private OverrideBoolValue m_forceToMono      = new( "Force To Mono", false );
         [SerializeField] private OverrideBoolValue m_loadInBackground = new( "Load In Background", false );
         [SerializeField] private OverrideBoolValue m_ambisonic        = new( "Ambisonic", false );
+        [SerializeField] private OverrideBoolValue m_preloadAudioData = new( "Preload Audio Data", true );
 
-        // [Space( SPACE_HEIGHT )]
-        // [SerializeField] private TextureImporterPlatformSettings m_defaultSettings;
-        //
-        // [SerializeField] private TextureImporterPlatformSettings m_standaloneSettings;
-        // [SerializeField] private TextureImporterPlatformSettings m_iPhoneSettings;
-        // [SerializeField] private TextureImporterPlatformSettings m_androidSettings;
-        // [SerializeField] private TextureImporterPlatformSettings m_webGLSettings;
+        [Space( SPACE_HEIGHT )]
+        [SerializeField] private AudioImporterPlatformSettings m_defaultSettings;
+
+        [SerializeField] private AudioImporterPlatformSettings m_standaloneSettings;
+        [SerializeField] private AudioImporterPlatformSettings m_iPhoneSettings;
+        [SerializeField] private AudioImporterPlatformSettings m_androidSettings;
+        [SerializeField] private AudioImporterPlatformSettings m_webGLSettings;
 
         //================================================================================
         // 関数
@@ -51,44 +52,58 @@ namespace Kogane.Internal
             {
                 importer.ambisonic = m_ambisonic.Value;
             }
-            //
-            // if ( m_defaultSettings != null )
-            // {
-            //     var platformSettings = importer.GetPlatformTextureSettings( "DefaultTexturePlatform" );
-            //     m_defaultSettings.Apply( platformSettings );
-            //     importer.SetPlatformTextureSettings( platformSettings );
-            // }
-            //
-            // if ( m_standaloneSettings != null )
-            // {
-            //     var platformSettings = importer.GetPlatformTextureSettings( "Standalone" );
-            //     m_standaloneSettings.Apply( platformSettings );
-            //     importer.SetPlatformTextureSettings( platformSettings );
-            // }
-            //
-            // if ( m_iPhoneSettings != null )
-            // {
-            //     var platformSettings = importer.GetPlatformTextureSettings( "iPhone" );
-            //     platformSettings.overridden = true;
-            //     m_iPhoneSettings.Apply( platformSettings );
-            //     importer.SetPlatformTextureSettings( platformSettings );
-            // }
-            //
-            // if ( m_androidSettings != null )
-            // {
-            //     var platformSettings = importer.GetPlatformTextureSettings( "Android" );
-            //     m_androidSettings.Apply( platformSettings );
-            //     importer.SetPlatformTextureSettings( platformSettings );
-            // }
-            //
-            // if ( m_webGLSettings != null )
-            // {
-            //     var platformSettings = importer.GetPlatformTextureSettings( "WebGL" );
-            //     m_webGLSettings.Apply( platformSettings );
-            //     importer.SetPlatformTextureSettings( platformSettings );
-            // }
-            //
-            // importer.SetTextureSettings( settings );
+
+            if ( m_preloadAudioData.IsOverride )
+            {
+                importer.preloadAudioData = m_preloadAudioData.Value;
+            }
+
+            if ( m_defaultSettings != null )
+            {
+                importer.defaultSampleSettings = m_defaultSettings
+                    .Apply( importer.defaultSampleSettings );
+            }
+
+            if ( m_standaloneSettings != null )
+            {
+                Apply( importer, "Standalone", m_standaloneSettings );
+            }
+
+            if ( m_iPhoneSettings != null )
+            {
+                Apply( importer, "iPhone", m_iPhoneSettings );
+            }
+
+            if ( m_androidSettings != null )
+            {
+                Apply( importer, "Android", m_androidSettings );
+            }
+
+            if ( m_webGLSettings != null )
+            {
+                Apply( importer, "WebGL", m_webGLSettings );
+            }
+        }
+
+        private static void Apply
+        (
+            AudioImporter                 importer,
+            string                        platform,
+            AudioImporterPlatformSettings settings
+        )
+        {
+            if ( settings.Overridden )
+            {
+                importer.SetOverrideSampleSettings
+                (
+                    platform,
+                    settings.Apply( importer.GetOverrideSampleSettings( platform ) )
+                );
+            }
+            else
+            {
+                importer.ClearSampleSettingOverride( platform );
+            }
         }
     }
 }
