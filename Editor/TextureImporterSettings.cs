@@ -79,135 +79,32 @@ namespace Kogane.Internal
             var settings = new UnityEditor.TextureImporterSettings();
             importer.ReadTextureSettings( settings );
 
-            if ( m_textureType.IsOverride )
-            {
-                settings.textureType = m_textureType;
-            }
-
-            if ( m_textureShape.IsOverride )
-            {
-                settings.textureShape = m_textureShape;
-            }
-
-            if ( m_spritePixelsPerUnit.IsOverride )
-            {
-                settings.spritePixelsPerUnit = m_spritePixelsPerUnit;
-            }
-
-            if ( m_spriteMeshType.IsOverride )
-            {
-                settings.spriteMeshType = m_spriteMeshType;
-            }
-
-            if ( m_spriteExtrude.IsOverride )
-            {
-                settings.spriteExtrude = m_spriteExtrude;
-            }
-
-            if ( m_spriteAlignment.IsOverride )
-            {
-                settings.spriteAlignment = ( int )m_spriteAlignment.Value;
-            }
-
-            if ( m_spritePivot.IsOverride )
-            {
-                settings.spritePivot = m_spritePivot;
-            }
-
-            if ( m_spriteGenerateFallbackPhysicsShape.IsOverride )
-            {
-                settings.spriteGenerateFallbackPhysicsShape = m_spriteGenerateFallbackPhysicsShape;
-            }
-
-            if ( m_sRGBTexture.IsOverride )
-            {
-                settings.sRGBTexture = m_sRGBTexture;
-            }
-
-            if ( m_alphaSource.IsOverride )
-            {
-                settings.alphaSource = m_alphaSource;
-            }
-
-            if ( m_alphaIsTransparency.IsOverride )
-            {
-                settings.alphaIsTransparency = m_alphaIsTransparency;
-            }
-
-            if ( m_npotScale.IsOverride )
-            {
-                settings.npotScale = m_npotScale;
-            }
-
-            if ( m_readable.IsOverride )
-            {
-                settings.readable = m_readable;
-            }
-
-            if ( m_streamingMipmaps.IsOverride )
-            {
-                settings.streamingMipmaps = m_streamingMipmaps;
-            }
-
-            if ( m_streamingMipmapsPriority.IsOverride )
-            {
-                settings.streamingMipmapsPriority = m_streamingMipmapsPriority;
-            }
-
-            if ( m_mipmapEnabled.IsOverride )
-            {
-                settings.mipmapEnabled = m_mipmapEnabled;
-            }
-
-            if ( m_borderMipmap.IsOverride )
-            {
-                settings.borderMipmap = m_borderMipmap;
-            }
-
-            if ( m_mipmapFilter.IsOverride )
-            {
-                settings.mipmapFilter = m_mipmapFilter;
-            }
-
-            if ( m_mipMapsPreserveCoverage.IsOverride )
-            {
-                settings.mipMapsPreserveCoverage = m_mipMapsPreserveCoverage;
-            }
-
-            if ( m_alphaTestReferenceValue.IsOverride )
-            {
-                settings.alphaTestReferenceValue = m_alphaTestReferenceValue;
-            }
-
-            if ( m_fadeOut.IsOverride )
-            {
-                settings.fadeOut = m_fadeOut;
-            }
-
-            if ( m_mipmapFadeDistanceStart.IsOverride )
-            {
-                settings.mipmapFadeDistanceStart = m_mipmapFadeDistanceStart;
-            }
-
-            if ( m_mipmapFadeDistanceEnd.IsOverride )
-            {
-                settings.mipmapFadeDistanceEnd = m_mipmapFadeDistanceEnd;
-            }
-
-            if ( m_wrapMode.IsOverride )
-            {
-                settings.wrapMode = m_wrapMode;
-            }
-
-            if ( m_filterMode.IsOverride )
-            {
-                settings.filterMode = m_filterMode;
-            }
-
-            if ( m_aniso.IsOverride )
-            {
-                settings.aniso = m_aniso;
-            }
+            m_textureType.Override( x => settings.textureType                                               = x );
+            m_textureShape.Override( x => settings.textureShape                                             = x );
+            m_spritePixelsPerUnit.Override( x => settings.spritePixelsPerUnit                               = x );
+            m_spriteMeshType.Override( x => settings.spriteMeshType                                         = x );
+            m_spriteExtrude.Override( x => settings.spriteExtrude                                           = x );
+            m_spriteAlignment.Override( x => settings.spriteAlignment                                       = ( int )x );
+            m_spritePivot.Override( x => settings.spritePivot                                               = x );
+            m_spriteGenerateFallbackPhysicsShape.Override( x => settings.spriteGenerateFallbackPhysicsShape = x );
+            m_sRGBTexture.Override( x => settings.sRGBTexture                                               = x );
+            m_alphaSource.Override( x => settings.alphaSource                                               = x );
+            m_alphaIsTransparency.Override( x => settings.alphaIsTransparency                               = x );
+            m_npotScale.Override( x => settings.npotScale                                                   = x );
+            m_readable.Override( x => settings.readable                                                     = x );
+            m_streamingMipmaps.Override( x => settings.streamingMipmaps                                     = x );
+            m_streamingMipmapsPriority.Override( x => settings.streamingMipmapsPriority                     = x );
+            m_mipmapEnabled.Override( x => settings.mipmapEnabled                                           = x );
+            m_borderMipmap.Override( x => settings.borderMipmap                                             = x );
+            m_mipmapFilter.Override( x => settings.mipmapFilter                                             = x );
+            m_mipMapsPreserveCoverage.Override( x => settings.mipMapsPreserveCoverage                       = x );
+            m_alphaTestReferenceValue.Override( x => settings.alphaTestReferenceValue                       = x );
+            m_fadeOut.Override( x => settings.fadeOut                                                       = x );
+            m_mipmapFadeDistanceStart.Override( x => settings.mipmapFadeDistanceStart                       = x );
+            m_mipmapFadeDistanceEnd.Override( x => settings.mipmapFadeDistanceEnd                           = x );
+            m_wrapMode.Override( x => settings.wrapMode                                                     = x );
+            m_filterMode.Override( x => settings.filterMode                                                 = x );
+            m_aniso.Override( x => settings.aniso                                                           = x );
 
             if ( m_defaultSettings != null )
             {
@@ -250,10 +147,7 @@ namespace Kogane.Internal
             // TextureImporter で設定する必要がある
             // また、Sprite Mode は SetTextureSettings の後に設定しないと反映されないので
             // SetTextureSettings の後に設定するようにしています
-            if ( m_spriteImportMode.IsOverride )
-            {
-                importer.spriteImportMode = m_spriteImportMode;
-            }
+            m_spriteImportMode.Override( x => importer.spriteImportMode = x );
         }
     }
 }
