@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Kogane
 {
     [Serializable]
-    public class OverrideValue<T> : OverrideValueBase
+    public sealed class OverrideValue<T> : OverrideValueBase
     {
         [SerializeField][UsedImplicitly] private string m_label;
         [SerializeField]                 private bool   m_isOverride;
