@@ -4,36 +4,6 @@ using UnityEngine;
 
 namespace Kogane.Internal
 {
-    internal abstract class OverrideValueBase
-    {
-    }
-
-    [Serializable]
-    internal abstract class OverrideValue<T> : OverrideValueBase
-    {
-        [SerializeField] private string m_label;
-        [SerializeField] private bool   m_isOverride;
-        [SerializeField] private T      m_value;
-
-        public string Label      => m_label;
-        public bool   IsOverride => m_isOverride;
-        public T      Value      => m_value;
-
-        protected OverrideValue( string label, T defaultValue )
-        {
-            m_label = label;
-            m_value = defaultValue;
-        }
-    }
-
-    [Serializable]
-    internal sealed class OverrideIntValue : OverrideValue<int>
-    {
-        public OverrideIntValue( string label, int defaultValue ) : base( label, defaultValue )
-        {
-        }
-    }
-
     [Serializable]
     internal sealed class OverrideTextureResizeAlgorithm : OverrideValue<TextureResizeAlgorithm>
     {
@@ -54,14 +24,6 @@ namespace Kogane.Internal
     internal sealed class OverrideTextureImporterCompression : OverrideValue<TextureImporterCompression>
     {
         public OverrideTextureImporterCompression( string label, TextureImporterCompression defaultValue ) : base( label, defaultValue )
-        {
-        }
-    }
-
-    [Serializable]
-    internal sealed class OverrideBoolValue : OverrideValue<bool>
-    {
-        public OverrideBoolValue( string label, bool defaultValue ) : base( label, defaultValue )
         {
         }
     }
@@ -142,30 +104,6 @@ namespace Kogane.Internal
     internal sealed class OverrideSpriteMeshType : OverrideValue<SpriteMeshType>
     {
         public OverrideSpriteMeshType( string label, SpriteMeshType defaultValue ) : base( label, defaultValue )
-        {
-        }
-    }
-
-    [Serializable]
-    internal sealed class OverrideUintValue : OverrideValue<uint>
-    {
-        public OverrideUintValue( string label, uint defaultValue ) : base( label, defaultValue )
-        {
-        }
-    }
-
-    [Serializable]
-    internal sealed class OverrideVector2 : OverrideValue<Vector2>
-    {
-        public OverrideVector2( string label, Vector2 defaultValue ) : base( label, defaultValue )
-        {
-        }
-    }
-
-    [Serializable]
-    internal sealed class OverrideFloatValue : OverrideValue<float>
-    {
-        public OverrideFloatValue( string label, float defaultValue ) : base( label, defaultValue )
         {
         }
     }

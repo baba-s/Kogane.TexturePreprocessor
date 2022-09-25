@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Kogane.Internal
+namespace Kogane
 {
     /// <summary>
     /// テクスチャや SpriteAtlas の設定の基底クラス
     /// Inspector のエディタ拡張を共通化するために必要
     /// </summary>
-    internal abstract class PreprocessorSettingsBase : ScriptableObject
+    public abstract class PreprocessorSettingsBase : ScriptableObject
     {
     }
 
@@ -16,7 +16,7 @@ namespace Kogane.Internal
     /// Inspector のエディタ拡張を共通化するために必要
     /// </summary>
     [Serializable]
-    internal abstract class PreprocessorSettingBase
+    public abstract class PreprocessorSettingBase
     {
     }
 }

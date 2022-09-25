@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Kogane.Internal
+namespace Kogane
 {
     /// <summary>
     /// テクスチャや SpriteAtlas の設定の基底クラス
     /// </summary>
-    internal abstract class PreprocessorSettingsBaseT<T> : PreprocessorSettingsBase
+    public abstract class PreprocessorSettingsBaseT<T> : PreprocessorSettingsBase
     {
         //================================================================================
         // 変数(SerializeField)
@@ -23,7 +23,7 @@ namespace Kogane.Internal
     /// テクスチャや SpriteAtlas の個別の設定の基底クラス
     /// </summary>
     [Serializable]
-    internal abstract class PreprocessorSettingBaseT<T> : PreprocessorSettingBase
+    public abstract class PreprocessorSettingBaseT<T> : PreprocessorSettingBase
     {
         //================================================================================
         // 変数(SerializeField)
