@@ -10,11 +10,6 @@ namespace Kogane.Internal
     internal sealed class AudioPreprocessor : AssetPostprocessor
     {
         //================================================================================
-        // 変数(static)
-        //================================================================================
-        private static AudioPreprocessorSettings m_settings;
-
-        //================================================================================
         // 関数
         //================================================================================
         /// <summary>
@@ -25,22 +20,13 @@ namespace Kogane.Internal
             // バッチモードの場合は何もしません
             if ( Application.isBatchMode ) return;
 
-            // 設定ファイルをまだ読み込んでいない場合は読み込みます
-            if ( m_settings == null )
-            {
-                m_settings = AssetDatabase
-                        .FindAssets( $"t:{nameof( AudioPreprocessorSettings )}" )
-                        .Select( x => AssetDatabase.GUIDToAssetPath( x ) )
-                        .Select( x => AssetDatabase.LoadAssetAtPath<AudioPreprocessorSettings>( x ) )
-                        .FirstOrDefault()
-                    ;
-            }
+            var preprocessorSettings = AudioPreprocessorSettings.instance;
 
             // 設定ファイルが存在しない場合は何もしません
-            if ( m_settings == null ) return;
+            if ( preprocessorSettings == null ) return;
 
             // 設定ファイルから該当する Import Setting の情報を取得します
-            var settings = m_settings.List
+            var settings = preprocessorSettings.List
                     .Where( x => !string.IsNullOrWhiteSpace( x.Path ) )
                     .FirstOrDefault( x => assetPath.StartsWith( x.Path ) )
                 ;
@@ -48,10 +34,8 @@ namespace Kogane.Internal
             if ( settings == null ) return;
             if ( settings.Settings == null ) return;
 
-            var audioImporter = ( AudioImporter )assetImporter;
-
             // Import Settings を自動で設定します
-            settings.Settings.Apply( audioImporter );
+            settings.Settings.Apply( ( AudioImporter )assetImporter );
         }
     }
 }

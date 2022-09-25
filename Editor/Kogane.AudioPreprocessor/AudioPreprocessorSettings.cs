@@ -1,21 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Kogane.Internal
 {
-    /// <summary>
-    /// アセットのパスごとにオーディオの Import Settings を管理するクラス
-    /// </summary>
-    [CreateAssetMenu( fileName = "AudioPreprocessorSettings", menuName = "UniTexturePreprocessor/AudioPreprocessorSettings", order = 10049 )]
-    internal sealed class AudioPreprocessorSettings : PreprocessorSettingsBaseT<AudioPreprocessorSetting>
+    [FilePath( "ProjectSettings/Kogane/AudioPreprocessorSettings.asset", FilePathAttribute.Location.ProjectFolder )]
+    internal sealed class AudioPreprocessorSettings : ScriptableSingleton<AudioPreprocessorSettings>
     {
-    }
+        [SerializeField] private AudioPreprocessorSetting[] m_array = Array.Empty<AudioPreprocessorSetting>();
 
-    /// <summary>
-    /// アセットのパスに紐づくオーディオの Import Settings を管理するクラス
-    /// </summary>
-    [Serializable]
-    internal sealed class AudioPreprocessorSetting : PreprocessorSettingBaseT<AudioImporterSettings>
-    {
+        public IReadOnlyList<AudioPreprocessorSetting> List => m_array;
+
+        public void Save()
+        {
+            Save( true );
+        }
     }
 }
