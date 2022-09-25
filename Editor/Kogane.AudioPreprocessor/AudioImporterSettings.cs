@@ -16,10 +16,10 @@ namespace Kogane.Internal
         //================================================================================
         // 変数(SerializeField)
         //================================================================================
-        [SerializeField] private OverrideBoolValue m_forceToMono      = new( "Force To Mono", false );
-        [SerializeField] private OverrideBoolValue m_loadInBackground = new( "Load In Background", false );
-        [SerializeField] private OverrideBoolValue m_ambisonic        = new( "Ambisonic", false );
-        [SerializeField] private OverrideBoolValue m_preloadAudioData = new( "Preload Audio Data", true );
+        [SerializeField] private OverrideValue<bool> m_forceToMono      = new( "Force To Mono", false );
+        [SerializeField] private OverrideValue<bool> m_loadInBackground = new( "Load In Background", false );
+        [SerializeField] private OverrideValue<bool> m_ambisonic        = new( "Ambisonic", false );
+        [SerializeField] private OverrideValue<bool> m_preloadAudioData = new( "Preload Audio Data", true );
 
         [Space( SPACE_HEIGHT )]
         [SerializeField] private AudioImporterPlatformSettings m_defaultSettings;
