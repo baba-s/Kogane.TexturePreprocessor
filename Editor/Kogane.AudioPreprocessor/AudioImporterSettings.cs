@@ -48,13 +48,16 @@ namespace Kogane.Internal
                 importer.defaultSampleSettings = m_defaultSettings.Apply( importer.defaultSampleSettings );
             }
 
-            Apply( importer, BuildTargetGroup.Standalone, m_standaloneSettings );
-            Apply( importer, BuildTargetGroup.iOS, m_iOSSettings );
-            Apply( importer, BuildTargetGroup.Android, m_androidSettings );
-            Apply( importer, BuildTargetGroup.WebGL, m_webGLSettings );
+            ApplyPlatform( importer, BuildTargetGroup.Standalone, m_standaloneSettings );
+            ApplyPlatform( importer, BuildTargetGroup.iOS, m_iOSSettings );
+            ApplyPlatform( importer, BuildTargetGroup.Android, m_androidSettings );
+            ApplyPlatform( importer, BuildTargetGroup.WebGL, m_webGLSettings );
         }
 
-        private static void Apply
+        /// <summary>
+        /// プラットフォームごとの設定を適用します
+        /// </summary>
+        private static void ApplyPlatform
         (
             AudioImporter                 importer,
             BuildTargetGroup              buildTargetGroup,
