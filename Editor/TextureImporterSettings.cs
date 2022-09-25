@@ -226,7 +226,6 @@ namespace Kogane.Internal
             if ( m_iPhoneSettings != null )
             {
                 var platformSettings = importer.GetPlatformTextureSettings( "iPhone" );
-                platformSettings.overridden = true;
                 m_iPhoneSettings.Apply( platformSettings );
                 importer.SetPlatformTextureSettings( platformSettings );
             }
