@@ -1,6 +1,6 @@
 # Kogane Texture Preprocessor
 
-テクスチャや SpriteAtlas のインポート設定を自動化するエディタ拡張
+テクスチャのインポート設定を自動化するエディタ拡張
 
 ## 使い方
 
