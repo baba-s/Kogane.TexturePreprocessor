@@ -15,7 +15,7 @@ namespace Kogane.Internal
         [SerializeField] private OverrideBoolValue              m_overridden         = new( "Override", false );
         [SerializeField] private OverrideAudioClipLoadType      m_loadType           = new( "Load Type", AudioClipLoadType.DecompressOnLoad );
         [SerializeField] private OverrideAudioSampleRateSetting m_sampleRateSetting  = new( "Sample Rate Setting", AudioSampleRateSetting.PreserveSampleRate );
-        [SerializeField] private OverrideUintValue              m_sampleRateOverride = new( "Sample Rate", 0 );
+        [SerializeField] private OverrideUintValue              m_sampleRateOverride = new( "Sample Rate", 44100 );
         [SerializeField] private OverrideAudioCompressionFormat m_compressionFormat  = new( "Compression Format", AudioCompressionFormat.Vorbis );
         [SerializeField] private OverrideFloatValue             m_quality            = new( "Quality", 1 );
 
