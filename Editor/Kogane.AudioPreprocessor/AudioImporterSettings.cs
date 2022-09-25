@@ -6,7 +6,6 @@ namespace Kogane.Internal
     /// <summary>
     /// オーディオの Import Settings を管理するクラス
     /// </summary>
-    [CreateAssetMenu( fileName = "AudioImporterSettings", menuName = "UniTexturePreprocessor/AudioImporterSettings", order = 10050 )]
     internal sealed class AudioImporterSettings : ScriptableObject
     {
         //================================================================================

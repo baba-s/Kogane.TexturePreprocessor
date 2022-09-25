@@ -7,7 +7,7 @@ namespace Kogane.Internal
 {
     internal sealed class AudioPreprocessorSettingsProvider : SettingsProvider
     {
-        private const string PATH = "Kogane/Audio Preprocessor ";
+        private const string PATH = "Kogane/Preprocessor/Audio";
 
         private Editor m_editor;
 
@@ -33,8 +33,6 @@ namespace Kogane.Internal
         {
             using var changeCheckScope = new EditorGUI.ChangeCheckScope();
 
-            m_editor.OnInspectorGUI();
-
             using ( new EditorGUILayout.HorizontalScope() )
             {
                 if ( GUILayout.Button( "Create Importer Settings" ) )
@@ -47,6 +45,8 @@ namespace Kogane.Internal
                     CreateScriptableObject<AudioImporterPlatformSettings>();
                 }
             }
+
+            m_editor.OnInspectorGUI();
 
             if ( !changeCheckScope.changed ) return;
 
