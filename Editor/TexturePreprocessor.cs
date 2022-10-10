@@ -21,7 +21,7 @@ namespace Kogane.Internal
             // // バッチモードの場合は何もしません
             // if ( Application.isBatchMode ) return;
 
-            var preprocessorSettings = TexturePreprocessorSettings.instance;
+            var preprocessorSettings = TexturePreprocessorSettings.Instance;
 
             // 設定ファイルが存在しない場合は何もしません
             if ( preprocessorSettings == null ) return;
