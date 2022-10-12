@@ -5,7 +5,10 @@
     {
         private const string PATH = "ProjectSettings/Kogane/TexturePreprocessorSettings.json";
 
-        public static TexturePreprocessorSettings Instance => GetInstance( PATH );
+        public static TexturePreprocessorSettings GetInstance( bool force = false )
+        {
+            return GetInstance( PATH, force );
+        }
 
         public void Save()
         {

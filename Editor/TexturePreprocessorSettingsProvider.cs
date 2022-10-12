@@ -22,7 +22,7 @@ namespace Kogane.Internal
 
         public override void OnActivate( string searchContext, VisualElement rootElement )
         {
-            var instance = TexturePreprocessorSettings.Instance;
+            var instance = TexturePreprocessorSettings.GetInstance();
 
             instance.hideFlags = HideFlags.HideAndDontSave & ~HideFlags.NotEditable;
 
@@ -50,7 +50,7 @@ namespace Kogane.Internal
 
             if ( !changeCheckScope.changed ) return;
 
-            TexturePreprocessorSettings.Instance.Save();
+            TexturePreprocessorSettings.GetInstance().Save();
         }
 
         private static void CreateScriptableObject<T>() where T : ScriptableObject
