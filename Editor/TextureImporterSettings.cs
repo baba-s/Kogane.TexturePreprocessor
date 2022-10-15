@@ -26,7 +26,7 @@ namespace Kogane.Internal
         [SerializeField] private OverrideValue<SpriteMeshType>  m_spriteMeshType                     = new( "Mesh Type", SpriteMeshType.Tight );
         [SerializeField] private OverrideValue<uint>            m_spriteExtrude                      = new( "Extrude Edges", 1 );
         [SerializeField] private OverrideValue<SpriteAlignment> m_spriteAlignment                    = new( "Pivot", SpriteAlignment.Center );
-        [SerializeField] private OverrideValue<Vector2>         m_spritePivot                        = new( "Pivot Custom", new Vector2( 0.5f, 0.5f ) );
+        [SerializeField] private OverrideValue<Vector2>         m_spritePivot                        = new( "Pivot Custom", new( 0.5f, 0.5f ) );
         [SerializeField] private OverrideValue<bool>            m_spriteGenerateFallbackPhysicsShape = new( "Generate Physics Shape", true );
 
         [Space( SPACE_HEIGHT )]
